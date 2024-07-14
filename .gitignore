@@ -1,0 +1,8 @@
+# APIKeys
+secrets.json
+
+# vscode
+*.code-workspace
+
+#fastapi
+__pycache__
