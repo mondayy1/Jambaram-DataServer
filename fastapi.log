@@ -1,0 +1,35 @@
+nohup: ignoring input
+INFO:     Will watch for changes in these directories: ['/home/hojoong/Jambaram-DataServer']
+INFO:     Uvicorn running on http://0.0.0.0:10055 (Press CTRL+C to quit)
+INFO:     Started reloader process [5321] using WatchFiles
+INFO:     Started server process [5323]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     113.198.180.139:53768 - "GET /docs HTTP/1.1" 200 OK
+INFO:     113.198.180.139:53768 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     113.198.180.139:53777 - "GET /docs HTTP/1.1" 200 OK
+INFO:     113.198.180.139:53777 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     1.246.142.49:55936 - "GET /docs HTTP/1.1" 200 OK
+INFO:     1.246.142.49:55936 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     1.246.142.49:55937 - "GET / HTTP/1.1" 200 OK
+INFO:     27.0.238.186:59400 - "GET /docs HTTP/1.1" 200 OK
+INFO:     27.0.238.187:50006 - "GET /docs HTTP/1.1" 200 OK
+INFO:     118.235.82.109:61435 - "GET /docs HTTP/1.1" 200 OK
+INFO:     118.235.82.109:61435 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     118.235.80.184:55681 - "GET /docs HTTP/1.1" 200 OK
+INFO:     118.235.80.184:55681 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     118.235.80.184:55682 - "GET / HTTP/1.1" 200 OK
+INFO:     1.246.142.49:54833 - "GET /docs HTTP/1.1" 200 OK
+INFO:     1.246.142.49:54833 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     1.246.142.49:54836 - "POST /combination HTTP/1.1" 200 OK
+INFO:     1.246.142.49:56825 - "GET / HTTP/1.1" 200 OK
+INFO:     1.246.142.49:56825 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     1.246.142.49:56825 - "GET /combination HTTP/1.1" 405 Method Not Allowed
+INFO:     1.246.142.49:56825 - "GET /combinations HTTP/1.1" 404 Not Found
+INFO:     1.246.142.49:56825 - "GET /combinatio HTTP/1.1" 404 Not Found
+INFO:     1.246.142.49:56825 - "GET / HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [5323]
+INFO:     Stopping reloader process [5321]

@@ -1,9 +1,12 @@
 import numpy as np
 import joblib
+import psycopg2
 from typing import List
 from fastapi import FastAPI
 from pydantic import BaseModel
 from itertools import combinations
+import warnings
+warnings.filterwarnings(action='ignore')
 
 class Datainput(BaseModel):
     champion_list: List[int] = []
