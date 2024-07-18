@@ -8,4 +8,4 @@ secrets.json
 __pycache__
 
 #linux
-nohup.out
+nohup.*

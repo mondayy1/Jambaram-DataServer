@@ -1,4 +1,5 @@
 import numpy as np
+import pandas as pd
 import joblib
 import psycopg2
 from typing import List
@@ -25,7 +26,9 @@ n_champions = 168
 
 app = FastAPI()
 
-champion_list_empty = [0 for i in range(n_champions)]
+df = pd.read_csv('/mnt/disk1/hojoong/matches/bone.csv').drop(columns=['win', 'score'])
+
+champion_list_empty = {col:0 for col in df.columns}
 
 model = joblib.load('/mnt/disk1/hojoong/models/test_model.pkl')
 
@@ -46,9 +49,9 @@ async def get_combination(data_request: Datainput):
         
         input = champion_list_empty
         for champion in comb:
-            input[champion] = 1
+            input[str(champion)] = 1
 
-        win_prob = model.predict_proba([np.array(input)])[0][1]
+        win_prob = model.predict_proba([np.array(list(input.values()))])[0][1]
 
         if win_prob > best_win_prob:
             best_win_prob = win_prob
