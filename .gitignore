@@ -7,5 +7,5 @@ secrets.json
 #fastapi
 __pycache__
 
-# models
-test_model.pkl
+#linux
+nohup.out

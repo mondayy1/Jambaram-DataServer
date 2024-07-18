@@ -3,23 +3,31 @@ import joblib
 import psycopg2
 from typing import List
 from fastapi import FastAPI
-from pydantic import BaseModel
+from pydantic import BaseModel, conlist, field_validator
 from itertools import combinations
 import warnings
 warnings.filterwarnings(action='ignore')
 
 class Datainput(BaseModel):
     champion_list: List[int] = []
+    
+    @field_validator('champion_list')
+    def check_champion_list_length(cls, v):
+        if not (5 <= len(v) <= 12):
+            raise ValueError('champion_list must contain between 5 and 10 items')
+        return v
 
 class Predictoutput(BaseModel):
     champions: List[int] = []
     win_prob: float
 
+n_champions = 168
+
 app = FastAPI()
 
-champion_list_empty = [0 for i in range(167)]
+champion_list_empty = [0 for i in range(n_champions)]
 
-model = joblib.load('./test_model.pkl')
+model = joblib.load('/mnt/disk1/hojoong/models/test_model.pkl')
 
 @app.get('/')
 async def root():
