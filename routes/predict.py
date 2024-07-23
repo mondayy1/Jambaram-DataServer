@@ -6,10 +6,11 @@ router = APIRouter()
 
 @router.get('/api')
 async def root():
-    return {'message': 'Hello, this is jambaram.xyz\'s API Server'}
+    return {'message': 'Hello, this is jambaram.xyz\'s Model API Server'}
 
 @router.post('/api/combination', response_model=Predictoutput)
 async def get_combination(data_request: Datainput):
     champions = data_request.champion_list
-    best_comb, best_win_prob = get_best_combination(champions)
+    champions_fixed = data_request.fixed_list
+    best_comb, best_win_prob = get_best_combination(champions, champions_fixed)
     return {'champions': list(best_comb), 'win_prob': float(best_win_prob)}
