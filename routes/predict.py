@@ -4,11 +4,11 @@ from utils.helpers import get_best_combination
 
 router = APIRouter()
 
-@router.get('/api')
+@router.get('/api/model')
 async def root():
     return {'message': 'Hello, this is jambaram.xyz\'s Model API Server'}
 
-@router.post('/api/combination', response_model=Predictoutput)
+@router.post('/api/model/combination', response_model=Predictoutput)
 async def get_combination(data_request: Datainput):
     champions = data_request.champion_list
     champions_fixed = data_request.fixed_list
