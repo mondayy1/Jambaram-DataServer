@@ -1,5 +1,5 @@
 from pydantic import BaseModel, field_validator
-from typing import List
+from typing import List, Dict
 
 class Datainput(BaseModel):
     champion_list: List[int] = []
@@ -20,3 +20,6 @@ class Datainput(BaseModel):
 class Predictoutput(BaseModel):
     champions: List[int] = []
     win_prob: float
+
+class FeatureImportanceOutput(BaseModel):
+    sorted_feature_importance_dict: Dict[str, float] = {}

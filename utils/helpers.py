@@ -3,6 +3,7 @@ import pandas as pd
 import joblib
 from itertools import combinations
 from typing import List
+from sklearn.preprocessing import MinMaxScaler
 
 # Load the model and the dataframe
 df = pd.read_csv('/mnt/disk1/hojoong/matches/bone.csv').drop(columns=['win', 'score'])
@@ -31,3 +32,17 @@ def get_best_combination(champions: List[int], champions_fixed: List[int]):
             best_comb = full_comb
 
     return best_comb, best_win_prob
+
+def get_feature_importance():
+    scaler = MinMaxScaler()
+
+    feature_importance = model.coef_[0]
+    feature_importance_scaled = scaler.fit_transform(np.array(feature_importance).reshape(-1, 1)).flatten()
+    features = df.columns[:-1]
+
+    importance_dict = dict(zip(features, feature_importance_scaled))
+    sorted_feature_importance_dict = dict(sorted(importance_dict.items(), key=lambda item: item[1], reverse=True))
+
+    return sorted_feature_importance_dict
+
+    
