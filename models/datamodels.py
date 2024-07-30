@@ -19,7 +19,10 @@ class Datainput(BaseModel):
     
 class Predictoutput(BaseModel):
     champions: List[int] = []
+    main_champ: int
     win_prob: float
+    score: float
+    
 
 class FeatureImportanceOutput(BaseModel):
     sorted_feature_importance_dict: Dict[str, float] = {}

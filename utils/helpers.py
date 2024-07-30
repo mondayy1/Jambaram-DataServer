@@ -7,8 +7,12 @@ from sklearn.preprocessing import MinMaxScaler
 
 # Load the model and the dataframe
 df = pd.read_csv('/mnt/disk1/hojoong/matches/bone.csv').drop(columns=['win', 'score'])
+features = df.columns[:-1]
 champion_list_empty = {col: 0 for col in df.columns}
 model = joblib.load('/mnt/disk1/hojoong/models/test_model.pkl')
+model_score = joblib.load('/mnt/disk1/hojoong/models/test_model_score.pkl')
+
+coef_score_dict = dict(zip(features, model_score.coef_))
 
 def get_best_combination(champions: List[int], champions_fixed: List[int]):
     remaining_spots = 5 - len(champions_fixed)
@@ -29,16 +33,25 @@ def get_best_combination(champions: List[int], champions_fixed: List[int]):
 
         if win_prob > best_win_prob:
             best_win_prob = win_prob
+            best_input_dict = input_dict
             best_comb = full_comb
 
-    return best_comb, best_win_prob
+    score = model_score.predict([np.array(list(best_input_dict.values()))])[0]
+
+    best_coef = coef_score_dict[str(best_comb[0])]
+    best_coef_id = best_comb[0]
+    for champion in best_comb[1:]:
+        if best_coef < coef_score_dict[str(champion)]:
+            best_coef = coef_score_dict[str(champion)]
+            best_coef_id = champion
+
+    return best_comb, best_coef_id, best_win_prob, score
 
 def get_feature_importance():
     scaler = MinMaxScaler()
 
     feature_importance = model.coef_[0]
     feature_importance_scaled = scaler.fit_transform(np.array(feature_importance).reshape(-1, 1)).flatten()
-    features = df.columns[:-1]
 
     importance_dict = dict(zip(features, feature_importance_scaled))
     sorted_feature_importance_dict = dict(sorted(importance_dict.items(), key=lambda item: item[1], reverse=True))
