@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from routes.combination import router as combination_router
 from routes.champion import router as champion_router
-app = FastAPI()
+app = FastAPI(docs_url='/api/model/docs', openapi_url='/api/model/openapi.json')
 
 # Add CORS middleware
 app.add_middleware(
