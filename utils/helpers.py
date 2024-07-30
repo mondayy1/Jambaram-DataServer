@@ -7,7 +7,7 @@ from sklearn.preprocessing import MinMaxScaler
 
 # Load the model and the dataframe
 df = pd.read_csv('/mnt/disk1/hojoong/matches/bone.csv').drop(columns=['win', 'score'])
-features = df.columns[:-1]
+features = df.columns
 champion_list_empty = {col: 0 for col in df.columns}
 model = joblib.load('/mnt/disk1/hojoong/models/test_model.pkl')
 model_score = joblib.load('/mnt/disk1/hojoong/models/test_model_score.pkl')
@@ -37,7 +37,7 @@ def get_best_combination(champions: List[int], champions_fixed: List[int]):
             best_comb = full_comb
 
     score = model_score.predict([np.array(list(best_input_dict.values()))])[0]
-
+    print(len(coef_score_dict))
     best_coef = coef_score_dict[str(best_comb[0])]
     best_coef_id = best_comb[0]
     for champion in best_comb[1:]:
@@ -45,7 +45,7 @@ def get_best_combination(champions: List[int], champions_fixed: List[int]):
             best_coef = coef_score_dict[str(champion)]
             best_coef_id = champion
 
-    return best_comb, best_coef_id, best_win_prob, score
+    return best_comb, best_coef_id, best_win_prob, (score - 60) * 4
 
 def get_feature_importance():
     scaler = MinMaxScaler()
