@@ -2,7 +2,8 @@
 > ARAM(칼바람) champion combination recommendation system TODO: [Demo](http://jambaram.xyz)
 
 #### Architecture
-![structure](https://github.com/user-attachments/assets/e88c5653-a864-4041-a30b-1466cc665c0d)
+![structure](https://github.com/user-attachments/assets/d6a4235c-7a88-4833-80ca-1ef253b3e5e4)
+
 
 
 # :floppy_disk: Installation
