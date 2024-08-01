@@ -1,9 +1,9 @@
-TODO: 로고
-
 # :sparkles: Jambaram-DataServer
 > ARAM(칼바람) champion combination recommendation system TODO: [Demo](http://jambaram.xyz)
 
-TODO: 아키텍쳐 그림
+#### Architecture
+![structure](https://github.com/user-attachments/assets/e88c5653-a864-4041-a30b-1466cc665c0d)
+
 
 # :floppy_disk: Installation
 가상환경 생성
