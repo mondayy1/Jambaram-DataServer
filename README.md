@@ -1,3 +1,6 @@
+![python](https://img.shields.io/badge/python-3.10.14-blue.svg?style=flat-square)
+![miniforge](https://img.shields.io/badge/miniforge-24.5.0-blue.svg?style=flat-square)
+
 # :sparkles: Jambaram-DataServer
 > ARAM(칼바람) champion combination recommendation system TODO: [Demo](http://jambaram.xyz)
 
