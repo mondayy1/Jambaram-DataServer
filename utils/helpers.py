@@ -37,7 +37,7 @@ def get_best_combination(champions: List[int], champions_fixed: List[int]):
             best_comb = full_comb
 
     score = model_score.predict([np.array(list(best_input_dict.values()))])[0]
-    print(len(coef_score_dict))
+    
     best_coef = coef_score_dict[str(best_comb[0])]
     best_coef_id = best_comb[0]
     for champion in best_comb[1:]:

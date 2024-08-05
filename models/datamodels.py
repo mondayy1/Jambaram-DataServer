@@ -23,6 +23,9 @@ class Predictoutput(BaseModel):
     win_prob: float
     score: float
     
-
 class FeatureImportanceOutput(BaseModel):
     sorted_feature_importance_dict: Dict[str, float] = {}
+
+class StatCombinationOutput(BaseModel):
+    champions: List[int] = []
+    value: float
