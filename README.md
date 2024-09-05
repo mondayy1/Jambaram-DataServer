@@ -5,7 +5,8 @@
 > ARAM(칼바람) champion combination recommendation system TODO: [Demo](http://jambaram.xyz)
 
 #### Architecture
-![structure](https://github.com/user-attachments/assets/d6a4235c-7a88-4833-80ca-1ef253b3e5e4)
+![structure](https://github.com/user-attachments/assets/dc5b1772-db0d-4de9-92c7-ca450a97e594)
+
 
 # API Docs
 #### https://jambaram.xyz/api/model/docs#/
